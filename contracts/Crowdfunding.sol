@@ -149,7 +149,7 @@ contract Crowdfunding {
 
         // Mint reward tokens if goal is reached after this contribution
         if (c.amountRaised >= c.goal) {
-            uint256 tokens = msg.value / 1 ether; // 1 token per 1 ETH
+            uint256 tokens = msg.value / 1 ether; // 1 BTK per 1 ETH
             if (tokens > 0) {
                 rewardToken.mint(msg.sender, tokens * 10 ** 18);
                 emit TokensMinted(_campaignId, msg.sender, tokens);

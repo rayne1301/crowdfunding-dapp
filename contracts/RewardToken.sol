@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 // ============================================================
-//  RewardToken.sol — Member 5: ERC-20 Reward Token
+//  RewardToken.sol — Member 5: BonusToken (BTK) ERC-20 Reward Token
 // ============================================================
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -10,13 +10,13 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract RewardToken is ERC20, Ownable {
 
-    // 1 token = 1 ETH contributed
-    uint256 public constant TOKENS_PER_ETH = 1;
+    // 0.2 BTK = 1 ETH contributed
+    uint256 public constant TOKENS_PER_ETH = 2e17;
 
     event TokensMinted(address indexed to, uint256 amount);
 
     constructor()
-        ERC20("CrowdReward", "CRW")
+        ERC20("BonusToken", "BTK")
         Ownable(msg.sender)
     {}
 
