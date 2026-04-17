@@ -7,15 +7,35 @@ import Dashboard from "./pages/Dashboard";
 import Campaign from "./pages/Campaign";
 import Refund from "./pages/Refund";
 import History from "./pages/History";
+import Profile from "./pages/Profile";
 
 export default function App() {
-  const [user, setUser]               = useState(null);   // { address, username }
-  const [page, setPage]               = useState("dashboard");
+  const [user, setUser] = useState(null);
+  const [page, setPage] = useState("dashboard");
   const [selectedCampaign, setSelectedCampaign] = useState(null);
 
   function handleLogin(userData) {
     setUser(userData);
     setPage("dashboard");
+  }
+
+  async function handleLogout() {
+    try {
+      // Revoke MetaMask permissions so it doesn't auto-reconnect
+      await window.ethereum.request({
+        method: "wallet_revokePermissions",
+        params: [{ eth_accounts: {} }],
+      });
+    } catch {
+      // silently fail if not supported
+    }
+    setUser(null);
+    setPage("dashboard");
+    setSelectedCampaign(null);
+  }
+
+  function handleUsernameUpdate(newUsername) {
+    setUser(prev => ({ ...prev, username: newUsername }));
   }
 
   function handleSelectCampaign(campaign) {
@@ -42,9 +62,21 @@ export default function App() {
             {item.label}
           </button>
         ))}
-        <span style={{ marginLeft: "auto", fontSize: 13, color: "#888" }}>
-          {user.username} · {user.address?.slice(0,6)}...{user.address?.slice(-4)}
-        </span>
+
+        {/* Right side — profile + logout */}
+        <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 12 }}>
+          <button onClick={() => setPage("profile")}
+            style={{ background: "none", border: "none", cursor: "pointer",
+              color: page === "profile" ? "#7F77DD" : "#555",
+              fontWeight: page === "profile" ? 600 : 400, fontSize: 14 }}>
+            {user.username} · {user.address?.slice(0,6)}...{user.address?.slice(-4)}
+          </button>
+          <button onClick={handleLogout}
+            style={{ background: "#fff", border: "1px solid #eee", borderRadius: 8,
+              padding: "6px 14px", fontSize: 13, cursor: "pointer", color: "#D85A30" }}>
+            Logout
+          </button>
+        </div>
       </nav>
 
       {/* Pages */}
@@ -57,6 +89,9 @@ export default function App() {
         )}
         {page === "refund" && <Refund user={user} />}
         {page === "history" && <History user={user} />}
+        {page === "profile" && (
+          <Profile user={user} onUsernameUpdate={handleUsernameUpdate} />
+        )}
       </main>
     </div>
   );
