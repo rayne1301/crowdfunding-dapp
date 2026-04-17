@@ -2,7 +2,7 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\ryany\\OneDrive\\Documents\\crowdfunding-dapp\\contracts\\Crowdfunding.sol": {
-      "lastModificationDate": 1776359670460,
+      "lastModificationDate": 1776365893123,
       "contentHash": "535ad86b12fe84ad3d296016461928e4",
       "sourceName": "contracts/Crowdfunding.sol",
       "solcConfig": {
@@ -40,8 +40,44 @@
         "Crowdfunding"
       ]
     },
+    "C:\\Users\\ryany\\OneDrive\\Documents\\crowdfunding-dapp\\contracts\\UserRegistry.sol": {
+      "lastModificationDate": 1776365893123,
+      "contentHash": "3b3daa73ab5b4f4f4ebb9d62d26e244e",
+      "sourceName": "contracts/UserRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "UserRegistry"
+      ]
+    },
     "C:\\Users\\ryany\\OneDrive\\Documents\\crowdfunding-dapp\\contracts\\RewardToken.sol": {
-      "lastModificationDate": 1776359670462,
+      "lastModificationDate": 1776365893123,
       "contentHash": "ed4db9522bb66ea4086699640799e737",
       "sourceName": "contracts/RewardToken.sol",
       "solcConfig": {
@@ -77,42 +113,6 @@
       ],
       "artifacts": [
         "RewardToken"
-      ]
-    },
-    "C:\\Users\\ryany\\OneDrive\\Documents\\crowdfunding-dapp\\contracts\\UserRegistry.sol": {
-      "lastModificationDate": 1776359670462,
-      "contentHash": "3b3daa73ab5b4f4f4ebb9d62d26e244e",
-      "sourceName": "contracts/UserRegistry.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "UserRegistry"
       ]
     },
     "C:\\Users\\ryany\\OneDrive\\Documents\\crowdfunding-dapp\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\ERC20.sol": {
@@ -157,7 +157,7 @@
       ]
     },
     "C:\\Users\\ryany\\OneDrive\\Documents\\crowdfunding-dapp\\node_modules\\@openzeppelin\\contracts\\access\\Ownable.sol": {
-      "lastModificationDate": 1776359631906,
+      "lastModificationDate": 1776364486110,
       "contentHash": "d3c790edc9ccf808a17c5a6cd13614fd",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -195,7 +195,7 @@
       ]
     },
     "C:\\Users\\ryany\\OneDrive\\Documents\\crowdfunding-dapp\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
-      "lastModificationDate": 1776359631388,
+      "lastModificationDate": 1776364486186,
       "contentHash": "67bfbc07588eb8683b3fd8f6f909563e",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -231,7 +231,7 @@
       ]
     },
     "C:\\Users\\ryany\\OneDrive\\Documents\\crowdfunding-dapp\\node_modules\\@openzeppelin\\contracts\\interfaces\\draft-IERC6093.sol": {
-      "lastModificationDate": 1776359631443,
+      "lastModificationDate": 1776364486173,
       "contentHash": "bcc76f4747d56c28c40ae272ef3470a6",
       "sourceName": "@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
       "solcConfig": {
@@ -305,7 +305,7 @@
       ]
     },
     "C:\\Users\\ryany\\OneDrive\\Documents\\crowdfunding-dapp\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\extensions\\IERC20Metadata.sol": {
-      "lastModificationDate": 1776359631792,
+      "lastModificationDate": 1776363518990,
       "contentHash": "513778b30d2750f5d2b9b19bbcf748a5",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {

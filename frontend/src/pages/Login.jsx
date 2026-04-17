@@ -88,8 +88,17 @@ export default function Login({ onLogin }) {
     try {
       setLoading(true);
       setError("");
-      setStatus("Registering...");
+      setStatus("Checking username...");
       const contract = await getUserRegistryContract();
+
+      // Check username availability BEFORE sending transaction
+      const takenBy = await contract.getAddressByUsername(username.trim()).catch(() => null);
+      if (takenBy && takenBy !== "0x0000000000000000000000000000000000000000") {
+        setError("That username is already taken. Please choose another.");
+        return;
+      }
+
+      setStatus("Registering...");
       const tx = await contract.registerUser(username.trim());
       setStatus("Waiting for confirmation...");
       await tx.wait();
@@ -98,16 +107,7 @@ export default function Login({ onLogin }) {
       await loadUserCount();
       onLogin({ address: walletAddress, username: username.trim() });
     } catch (err) {
-      // Show a clean error message instead of raw blockchain error
-      if (err.message.includes("Already registered")) {
-        setError("This wallet is already registered.");
-      } else if (err.message.includes("Username already taken")) {
-        setError("That username is already taken. Please choose another.");
-      } else if (err.message.includes("Username too long")) {
-        setError("Username must be 32 characters or less.");
-      } else {
-        setError("Registration failed. Please try again.");
-      }
+      setError("Registration failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -148,7 +148,7 @@ export default function Login({ onLogin }) {
           <p style={{ color: "#888", fontSize: 14, margin: 0 }}>Decentralized Crowdfunding Platform</p>
           {userCount !== null && (
             <p style={{ color: "#7F77DD", fontSize: 13, marginTop: 8 }}>
-              {userCount} users registered on-chain
+              {userCount} {userCount === "1" ? "user" : "users"} registered on-chain
             </p>
           )}
         </div>
