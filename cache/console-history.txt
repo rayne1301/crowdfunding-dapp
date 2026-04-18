@@ -1,0 +1,21 @@
+.exit
+await ethers.provider.send("evm_mine")
+await ethers.provider.send("evm_increaseTime", [864000])
+.exit
+await ethers.provider.send("evm_mine")
+await ethers.provider.send("evm_increaseTime", [864000])
+.exit
+new Date(block.timestamp * 1000).toLocaleDateString()
+const block = await ethers.provider.getBlock("latest")
+.exit
+await ethers.provider.send("evm_mine")
+await ethers.provider.send("evm_increaseTime", [345600])
+.exit
+await ethers.provider.send("evm_mine")
+await ethers.provider.send("evm_increaseTime", [259200])
+.exit
+await ethers.provider.send("evm_mine")
+await ethers.provider.send("evm_increaseTime", [86400])
+.exit
+await ethers.provider.send("evm_mine")
+await ethers.provider.send("evm_increaseTime", [86400])
