@@ -10,8 +10,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract RewardToken is ERC20, Ownable {
 
-    // 0.2 BTK = 1 ETH contributed
-    uint256 public constant TOKENS_PER_ETH = 2e17;
+    // 1 token = 1 ETH contributed
+    uint256 public constant TOKENS_PER_ETH = 1;
 
     event TokensMinted(address indexed to, uint256 amount);
 
